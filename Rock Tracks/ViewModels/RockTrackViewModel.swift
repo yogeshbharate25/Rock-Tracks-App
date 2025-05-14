@@ -23,7 +23,8 @@ final class RockTrackViewModel: ObservableObject {
     func fetchRockTracks() async {
         do {
             state = .loading
-            rockTracks = try await service.fetchRockTracks(from: AppConstants.rockTrackURL)
+            let response = try await service.fetchRockTracks(from: AppConstants.rockTrackURL)
+            rockTracks = response.sorted { $0.releaseDate < $1.releaseDate }
             state = .loaded
         } catch {
             state = .error(error)

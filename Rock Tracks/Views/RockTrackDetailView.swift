@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RockTrackDetailView: View {
     
-    let track: RockTrackResponse
+    let viewModel: RockTrackDetailViewModel
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
@@ -37,7 +37,7 @@ struct RockTrackDetailView: View {
     }
     
     private var imageView: some View {
-        AsyncImage(url: URL(string: track.artworkUrl100)) { image in
+        AsyncImage(url: URL(string: viewModel.track.artworkUrl100)) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -53,21 +53,21 @@ struct RockTrackDetailView: View {
     
     private var trackDetailView: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(track.trackName)
+            Text(viewModel.track.trackName)
                 .font(.system(size: 20, weight: .semibold))
                 .foregroundStyle(.black)
-            Text(track.artistName)
+            Text(viewModel.track.artistName)
                 .font(.system(size: 18))
                 .foregroundStyle(.gray)
-            Text(String(format: "%.2f", track.trackPrice))
+            Text(String(format: "%.2f", viewModel.track.trackPrice))
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(.gray)
             Spacer()
                 .frame(height: 16)
-            Text(track.duration)
+            Text(viewModel.getTrackDuration(trackTimeMillis: viewModel.track.trackTimeMillis))
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(.gray)
-            Text(track.releaseDate)
+            Text(viewModel.formatDate(viewModel.track.releaseDate))
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(.gray)
         }
@@ -88,7 +88,7 @@ struct RockTrackDetailView: View {
     }
     
     func buttonTapped() {
-        if let url = URL(string: track.trackViewUrl),
+        if let url = URL(string: viewModel.track.trackViewUrl),
            UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }

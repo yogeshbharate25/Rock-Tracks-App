@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B7479E382DD2B034000BC625 /* Rock_TracksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7479E242DD2B034000BC625 /* Rock_TracksApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B7AA01AA2DD0DD930060908C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7479E242DD2B034000BC625 /* Rock_TracksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock_TracksApp.swift; sourceTree = "<group>"; };
 		B7AA01992DD0DD910060908C /* Rock Tracks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rock Tracks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AA01A92DD0DD930060908C /* Rock TracksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock TracksTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AA01B32DD0DD930060908C /* Rock TracksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock TracksUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				B7AA019B2DD0DD910060908C /* Rock Tracks */,
+				B7479E242DD2B034000BC625 /* Rock_TracksApp.swift */,
 				B7AA01AC2DD0DD930060908C /* Rock TracksTests */,
 				B7AA01B62DD0DD930060908C /* Rock TracksUITests */,
 				B7AA019A2DD0DD910060908C /* Products */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7479E382DD2B034000BC625 /* Rock_TracksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

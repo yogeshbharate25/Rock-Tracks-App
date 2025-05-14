@@ -43,7 +43,7 @@ struct RockTrackListView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(viewModel.rockTracks, id: \.trackId) { track in
-                        NavigationLink(destination: RockTrackDetailView(track: track)) {
+                        NavigationLink(destination: RockTrackDetailView(viewModel: .init(track: track))) {
                             HStack(spacing: 16) {
                                 getTrackImageView(track.artworkUrl60)
                                 getTrackListView(track)
