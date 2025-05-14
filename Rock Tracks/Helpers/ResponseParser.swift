@@ -14,8 +14,6 @@ protocol DecodableParser {
 final class ResponseParser: DecodableParser {
     static func decode<T: Decodable>(from data: Data) throws -> T {
         let jsonDecoder = JSONDecoder()
-        let decoded = try? jsonDecoder.decode(T.self, from: data)
-        print(decoded)
-        return decoded!
+        return try jsonDecoder.decode(T.self, from: data)
     }
 }
