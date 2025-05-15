@@ -18,8 +18,10 @@ struct RockTrackListView: View {
                 ProgressView()
             case .loaded:
                 loadedView
-            case .error(let error):
-                Text("Error: \(error)")
+            case .error:
+                Text(AppError.genericError.errorDescription)
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundStyle(.black)
             }
         }
         .onAppear {

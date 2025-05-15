@@ -11,7 +11,6 @@ struct RockTrackDetailViewModel {
     
     let track: RockTrackResponse
     
-    
     func getTrackDuration(trackTimeMillis: Int) -> String {
         let minutes = trackTimeMillis / 60000
         let seconds = (trackTimeMillis % 60000) / 1000

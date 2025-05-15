@@ -34,6 +34,16 @@
 		B7AA01B32DD0DD930060908C /* Rock TracksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock TracksUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B7479E522DD69BE9000BC625 /* Exceptions for "Rock TracksTests" folder in "Rock Tracks" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Arrange/RockTrackResponse.json,
+			);
+			target = B7AA01982DD0DD910060908C /* Rock Tracks */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B7AA019B2DD0DD910060908C /* Rock Tracks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -42,6 +52,9 @@
 		};
 		B7AA01AC2DD0DD930060908C /* Rock TracksTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B7479E522DD69BE9000BC625 /* Exceptions for "Rock TracksTests" folder in "Rock Tracks" target */,
+			);
 			path = "Rock TracksTests";
 			sourceTree = "<group>";
 		};

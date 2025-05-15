@@ -27,7 +27,7 @@ final class RockTrackViewModel: ObservableObject {
             rockTracks = response.sorted { $0.releaseDate < $1.releaseDate }
             state = .loaded
         } catch {
-            state = .error(error)
+            state = .error
         }
     }
 }
@@ -38,6 +38,6 @@ extension RockTrackViewModel {
         case idle
         case loading
         case loaded
-        case error(Error)
+        case error
     }
 }

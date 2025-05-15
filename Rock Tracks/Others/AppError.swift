@@ -12,8 +12,9 @@ enum AppError: Error {
     case noData
     case requestFailed
     case parsingFailed
+    case genericError
     
-    var errorDescriptionL: String {
+    var errorDescription: String {
         switch self {
         case .invalidURL:
             return "Invalid URL"
@@ -23,6 +24,8 @@ enum AppError: Error {
             return "Request failed"
         case .parsingFailed:
             return "Parsing failed"
+        case .genericError:
+            return "Something went wrong. Please try again later."
         }
     }
 }
