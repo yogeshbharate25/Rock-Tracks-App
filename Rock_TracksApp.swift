@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct Rock_TracksApp: App {
+    
+    var rockTrackService: APIServiceProviding {
+        if AppHelper.isUITestCases {
+            return MockRockTracksService()
+        } else {
+            return RockTracksService()
+        }
+    }
+    
+    
     var body: some Scene {
         WindowGroup {
-            RockTrackListView()
+            let viewModel = RockTrackViewModel(service: rockTrackService)
+            RockTrackListView(viewModel: viewModel)
         }
     }
 }

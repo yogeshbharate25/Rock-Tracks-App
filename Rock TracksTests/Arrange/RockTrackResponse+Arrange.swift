@@ -4,8 +4,8 @@
 //
 //  Created by Yogesh Bharate on 15/05/25.
 //
+#if DEBUG
 import Foundation
-@testable import Rock_Tracks
 
 extension RockTrackResponse {
     static var arrange: [RockTrackResponse] {
@@ -14,3 +14,4 @@ extension RockTrackResponse {
         return response.results
     }
 }
+#endif

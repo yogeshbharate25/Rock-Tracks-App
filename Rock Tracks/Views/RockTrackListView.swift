@@ -61,21 +61,24 @@ struct RockTrackListView: View {
     }
     
     private func getTrackImageView(_ trackURL: String) -> some View {
-        AsyncImage(url: URL(string: trackURL)) { phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFit()
-            case .failure:
-                Image(systemName: "exclamationmark.triangle")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.red)
-            @unknown default:
-                EmptyView()
+        VStack(spacing: 0) {
+            if AppHelper.isUITestCases {
+                defaultImageView
+            } else {
+                AsyncImage(url: URL(string: trackURL)) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    case .failure:
+                        defaultImageView
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
             }
         }
         .frame(width: 120, height: 120)
@@ -86,12 +89,22 @@ struct RockTrackListView: View {
             Text(track.trackName)
                 .font(.system(size: 20, weight: .semibold))
                 .foregroundStyle(.black)
+                .accessibilityIdentifier("trackListView.\(track.trackId).trackName")
             Text(track.artistName)
                 .font(.system(size: 18))
                 .foregroundStyle(.gray)
+                .accessibilityIdentifier("trackListView.\(track.trackId).artistName")
             Text(String(format: "%.2f", track.trackPrice))
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(.gray)
+                .accessibilityIdentifier("trackListView.\(track.trackId).trackPrice")
         }
+    }
+    
+    private var defaultImageView: some View {
+        Image(systemName: "photo")
+            .resizable()
+            .scaledToFit()
+            .foregroundColor(.gray)
     }
 }

@@ -39,8 +39,18 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Arrange/RockTrackResponse.json,
+				"Arrange/RockTrackResponse+Arrange.swift",
+				Mocks/MockRockTracksService.swift,
 			);
 			target = B7AA01982DD0DD910060908C /* Rock Tracks */;
+		};
+		B7479E5D2DD6A5C8000BC625 /* Exceptions for "Rock TracksTests" folder in "Rock TracksTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Arrange/RockTrackResponse+Arrange.swift",
+				Mocks/MockRockTracksService.swift,
+			);
+			target = B7AA01A82DD0DD930060908C /* Rock TracksTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -54,6 +64,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B7479E522DD69BE9000BC625 /* Exceptions for "Rock TracksTests" folder in "Rock Tracks" target */,
+				B7479E5D2DD6A5C8000BC625 /* Exceptions for "Rock TracksTests" folder in "Rock TracksTests" target */,
 			);
 			path = "Rock TracksTests";
 			sourceTree = "<group>";

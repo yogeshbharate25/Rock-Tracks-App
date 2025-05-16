@@ -5,8 +5,8 @@
 //  Created by Yogesh Bharate on 15/05/25.
 //
 
+#if DEBUG
 import Foundation
-@testable import Rock_Tracks
 
 final class MockRockTracksService: APIServiceProviding {
     
@@ -20,3 +20,4 @@ final class MockRockTracksService: APIServiceProviding {
         return RockTrackResponse.arrange
     }
 }
+#endif

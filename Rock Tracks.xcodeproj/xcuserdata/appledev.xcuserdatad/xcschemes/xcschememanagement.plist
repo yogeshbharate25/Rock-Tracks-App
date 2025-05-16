@@ -7,7 +7,35 @@
 		<key>Rock Tracks.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Rock TracksTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Rock TracksUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B7AA01982DD0DD910060908C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7AA01A82DD0DD930060908C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7AA01B22DD0DD930060908C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

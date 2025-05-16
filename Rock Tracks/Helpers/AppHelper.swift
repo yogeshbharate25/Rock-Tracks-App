@@ -8,6 +8,11 @@
 import Foundation
 
 struct AppHelper {
+    
+    static var isUITestCases: Bool {
+        return CommandLine.arguments.contains("--ui-testing")
+    }
+    
     static func load(filename: String, type: String = "json") -> Data {
         guard let url = Bundle.main.url(forResource: filename,
                                         withExtension: type) else {
