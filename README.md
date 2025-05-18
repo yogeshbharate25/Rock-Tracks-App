@@ -66,13 +66,13 @@ The Rock Track app follows MVVM + Clean Service Layer with dependency injection 
 
 ## 🧱 App Screens
 ### 1. **Loading Pattern**
-![Loading Pattern](Screenshots/Screenshot-1.png)
+<img src="Screenshots/Screenshot-1.png" alt="App Flow Diagram" width="450" height="950"/>
 
 ### 2. **Rock Track List View**
-![Rock Track List View](Screenshots/Screenshot-2.png)
+<img src="Screenshots/Screenshot-2.png" alt="Rock Track List View" width="450" height="950"/>
 
 ### 3. **Rock Track Detail View**
-![Rock Track Detail View](Screenshots/Screenshot-3.png)
+<img src="Screenshots/Screenshot-3.png" alt="Rock Track Detail View" width="450" height="950"/>
 
 ## 🧚‍♂️ Testing
 
