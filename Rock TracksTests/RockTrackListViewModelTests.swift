@@ -1,5 +1,5 @@
 //
-//  Rock_TracksTests.swift
+//  RockTrackListViewModelTests.swift
 //  Rock TracksTests
 //
 //  Created by Yogesh Bharate on 11/05/25.
@@ -8,15 +8,15 @@
 import XCTest
 @testable import Rock_Tracks
 
-final class RockTrackViewModelTests: XCTestCase {
+final class RockTrackListViewModelTests: XCTestCase {
     
-    var sut: RockTrackViewModel!
+    var sut: RockTrackListViewModel!
     var mockService: MockRockTracksService!
     
     override func setUp() {
         super.setUp()
         mockService = MockRockTracksService()
-        sut = RockTrackViewModel(service: mockService)
+        sut = RockTrackListViewModel(service: mockService)
     }
     
     override func tearDown() {
