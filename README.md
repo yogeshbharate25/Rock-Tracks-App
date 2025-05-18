@@ -17,7 +17,7 @@ Rock Track is a SwiftUI-based iOS application that fetches and displays a list o
 
 ## 🫟 App Flow Overview
 
-![App Flow Diagram](./RockTrack-FlowDiagram.png)
+![App Flow Diagram](Screenshots/FlowDiagram.png)
 
 ---
 
@@ -64,6 +64,16 @@ The Rock Track app follows MVVM + Clean Service Layer with dependency injection 
 
 ---
 
+## 🧱 App Screens
+### 1. **Loading Pattern**
+![Loading Pattern](Screenshots/Screenshot-1.png)
+
+### 2. **Rock Track List View**
+![Rock Track List View](Screenshots/Screenshot-2.png)
+
+### 3. **Rock Track Detail View**
+![Rock Track Detail View](Screenshots/Screenshot-3.png)
+
 ## 🧚‍♂️ Testing
 
 ### Unit Tests
@@ -71,10 +81,15 @@ The Rock Track app follows MVVM + Clean Service Layer with dependency injection 
 * Mock `NetworkProviding`, `APIServiceProviding`, and `ResponseParserProviding` protocols.
 * Test ViewModels in isolation with dependency injection.
 
+![Rock Track Detail View](Screenshots/Screenshot-4.png)
+
 ### UI Tests
 
 * `AppHelper.isUITestCases` flag helps toggle mock images and test-friendly states.
 * UI tests can assert view content and button actions.
+
+![Rock Track Detail View](Screenshots/Screenshot-5.png)
+
 
 ---
 
