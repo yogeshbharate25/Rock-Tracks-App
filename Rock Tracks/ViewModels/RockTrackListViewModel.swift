@@ -1,5 +1,5 @@
 //
-//  RockTrackViewModel.swift
+//  RockTrackListViewModel.swift
 //  Rock Tracks
 //
 //  Created by Yogesh Bharate on 11/05/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class RockTrackViewModel: ObservableObject {
+final class RockTrackListViewModel: ObservableObject {
     // MARK: - Constants
     private let service: APIServiceProviding
     
@@ -33,7 +33,7 @@ final class RockTrackViewModel: ObservableObject {
 }
 
 // MARK: - States
-extension RockTrackViewModel {
+extension RockTrackListViewModel {
     enum State {
         case idle
         case loading

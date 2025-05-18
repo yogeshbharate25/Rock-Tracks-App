@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol DecodableParser {
+protocol ResponseParserProviding {
     static func decode<T: Decodable>(from data: Data) throws -> T
 }
 
-final class ResponseParser: DecodableParser {
+final class ResponseParser: ResponseParserProviding {
     static func decode<T: Decodable>(from data: Data) throws -> T {
         let jsonDecoder = JSONDecoder()
         return try jsonDecoder.decode(T.self, from: data)

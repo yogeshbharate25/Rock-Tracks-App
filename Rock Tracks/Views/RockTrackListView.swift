@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RockTrackListView: View {
     
-    @ObservedObject var viewModel: RockTrackViewModel = .init()
+    @ObservedObject var viewModel: RockTrackListViewModel = .init()
     
     var body: some View {
         VStack {
