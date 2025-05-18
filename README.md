@@ -6,12 +6,13 @@ Rock Track is a SwiftUI-based iOS application that fetches and displays a list o
 
 ## 📱 Features
 
-* List of rock tracks fetched from iTunes API
+* List of rock tracks fetched from iTunes API and Sorted as per ascending track Release date.
 * Detailed view for individual tracks
 * Opens track in Safari for more details
 * Modern SwiftUI interface
 * Clean architecture with testable layers
 * UI and unit test friendly
+* Tested using a very slow Internet connection
 
 ---
 
