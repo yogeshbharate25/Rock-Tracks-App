@@ -24,11 +24,22 @@ final class RockTrackListViewModel: ObservableObject {
         do {
             state = .loading
             let response = try await service.fetchRockTracks(from: AppConstants.rockTrackURL)
-            rockTracks = response.sorted { $0.releaseDate < $1.releaseDate }
+//            rockTracks = response.sorted { $0.releaseDate < $1.releaseDate }
+            rockTracks = response
             state = .loaded
         } catch {
             state = .error
         }
+    }
+    
+    func sortBy(_ type: SortType) {
+        var sortedTracks: [RockTrackResponse] = []
+        if type == .ascending {
+            sortedTracks = rockTracks.sorted { $0.releaseDate < $1.releaseDate }
+        } else {
+            sortedTracks = rockTracks.sorted { $0.releaseDate > $1.releaseDate }
+        }
+        rockTracks = sortedTracks
     }
 }
 
@@ -40,4 +51,9 @@ extension RockTrackListViewModel {
         case loaded
         case error
     }
+}
+
+enum SortType {
+    case ascending
+    case descending
 }

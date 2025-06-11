@@ -10,6 +10,7 @@ import SwiftUI
 struct RockTrackListView: View {
     
     @ObservedObject var viewModel: RockTrackListViewModel = .init()
+    @State var sortType: SortType = .ascending
     
     var body: some View {
         VStack {
@@ -34,11 +35,22 @@ struct RockTrackListView: View {
     private var loadedView: some View {
         NavigationView {
             VStack(spacing: 16) {
+                sortView
                 rockTrackList
             }
             .navigationTitle(AppConstants.title)
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    private var sortView: some View {
+        Text("Sort By")
+            .font(.title)
+            .padding(16)
+            .onTapGesture {
+                sortType = sortType == .ascending ? .descending : .ascending
+                viewModel.sortBy(sortType)
+            }
     }
     
     private var rockTrackList: some View {
