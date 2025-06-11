@@ -52,11 +52,21 @@
 			);
 			target = B7AA01A82DD0DD930060908C /* Rock TracksTests */;
 		};
+		B7B6943B2DFA30FA007BFCCF /* Exceptions for "Rock Tracks" folder in "Rock Tracks" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Rock-Tracks-Info.plist",
+			);
+			target = B7AA01982DD0DD910060908C /* Rock Tracks */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B7AA019B2DD0DD910060908C /* Rock Tracks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B7B6943B2DFA30FA007BFCCF /* Exceptions for "Rock Tracks" folder in "Rock Tracks" target */,
+			);
 			path = "Rock Tracks";
 			sourceTree = "<group>";
 		};
@@ -429,6 +439,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rock-Tracks-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -458,6 +469,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Rock-Tracks-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

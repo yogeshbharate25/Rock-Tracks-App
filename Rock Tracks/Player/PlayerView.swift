@@ -42,11 +42,11 @@ struct ParagraphReaderView: View {
                 .padding()
 
             HStack {
-                Button("Choose Voice") {
-                    showVoicePicker.toggle()
-                }
-                
-                Spacer()
+//                Button("Choose Voice") {
+//                    showVoicePicker.toggle()
+//                }
+//                
+//                Spacer()
                 
                 Button(action: {
                     speechManager.skip(by: -10)

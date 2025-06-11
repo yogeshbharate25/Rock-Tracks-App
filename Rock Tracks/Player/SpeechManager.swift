@@ -38,9 +38,9 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     }
 
     func toggleSpeech(for paragraphs: [String]) {
-        if synthesizer.isSpeaking {
-            synthesizer.pauseSpeaking(at: .immediate)
+        if isSpeaking {
             isSpeaking = false
+            synthesizer.pauseSpeaking(at: .immediate)
             stopTimer() // 🛑 Stop updating the slider
         } else if synthesizer.isPaused {
             synthesizer.continueSpeaking()
@@ -66,14 +66,31 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     }
 
     func skip(by seconds: TimeInterval) {
+        // We must stop speaking and start fresh from new position
         synthesizer.stopSpeaking(at: .immediate)
-        guard let startTime = startTime else { return }
-        let newElapsed = Date().timeIntervalSince(startTime) + seconds
+
+        // Calculate new elapsed time clamped between 0 and total duration
+        let newElapsed: TimeInterval
+        if let startTime = startTime {
+            newElapsed = Date().timeIntervalSince(startTime) + elapsedTime + seconds
+        } else {
+            newElapsed = seconds
+        }
         let clampedTime = max(0, min(totalSpeechDuration, newElapsed))
+        
+        // Find paragraph index for new elapsed time
         let newIndex = paragraphIndex(for: clampedTime)
         currentParagraphIndex = newIndex
+
+        // Reset elapsedTime and startTime to track from new position
+        elapsedTime = clampedTime
+        startTime = Date().addingTimeInterval(-clampedTime)
+        progress = clampedTime / totalSpeechDuration
+
+        // Speak from new paragraph
+        isSpeaking = true
         synthesizer.speak(utterances[currentParagraphIndex])
-        self.startTime = Date().addingTimeInterval(-clampedTime)
+        startTimer()
     }
 
     func estimateTotalDuration(for utterances: [AVSpeechUtterance]) -> TimeInterval {
