@@ -21,8 +21,9 @@ struct Rock_TracksApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = RockTrackListViewModel(service: rockTrackService)
-            RockTrackListView(viewModel: viewModel)
+//            let viewModel = RockTrackListViewModel(service: rockTrackService)
+//            RockTrackListView(viewModel: viewModel)
+            ParagraphReaderView()
         }
     }
 }

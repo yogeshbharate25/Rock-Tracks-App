@@ -13,35 +13,54 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     private var timer: Timer?
     private var startTime: Date?
     private var totalSpeechDuration: TimeInterval = 0
+    private var elapsedTime: TimeInterval = 0
 
+    @Published var selectedVoice: AVSpeechSynthesisVoice? = AVSpeechSynthesisVoice(language: "en-US")
     @Published var currentParagraphIndex = 0
     @Published var isSpeaking = false
     @Published var progress: Double = 0
+    @Published var availableVoices: [AVSpeechSynthesisVoice] = []
 
     override init() {
         super.init()
         synthesizer.delegate = self
+        loadVoices()
+    }
+    
+    func loadVoices() {
+        availableVoices = AVSpeechSynthesisVoice.speechVoices().filter { $0.language.starts(with: "en") }
+    }
+    
+    func speakPreview(text: String = "Hello! This is a voice preview.", with voice: AVSpeechSynthesisVoice) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = voice
+        synthesizer.speak(utterance)
     }
 
     func toggleSpeech(for paragraphs: [String]) {
         if synthesizer.isSpeaking {
             synthesizer.pauseSpeaking(at: .immediate)
             isSpeaking = false
+            stopTimer() // 🛑 Stop updating the slider
         } else if synthesizer.isPaused {
             synthesizer.continueSpeaking()
             isSpeaking = true
+            startTime = Date().addingTimeInterval(-elapsedTime)
+            startTimer() // ▶️ Resume slider updates
         } else {
+            // Starting from the beginning
             utterances = paragraphs.map {
                 let utterance = AVSpeechUtterance(string: $0)
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                utterance.voice = selectedVoice
                 return utterance
             }
             currentParagraphIndex = 0
             totalSpeechDuration = estimateTotalDuration(for: utterances)
             startTime = Date()
+            elapsedTime = 0
             progress = 0
-            synthesizer.speak(utterances[currentParagraphIndex])
             isSpeaking = true
+            synthesizer.speak(utterances[currentParagraphIndex])
             startTimer()
         }
     }
@@ -85,9 +104,18 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
             synthesizer.speak(utterances[currentParagraphIndex])
         } else {
             isSpeaking = false
-            timer?.invalidate()
+            stopTimer()
             progress = 1
+            elapsedTime = 0
         }
+    }
+    
+    func stopTimer() {
+        if let startTime = startTime {
+            elapsedTime += Date().timeIntervalSince(startTime)
+        }
+        timer?.invalidate()
+        timer = nil
     }
 }
 
